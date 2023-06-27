@@ -6,7 +6,7 @@
 <h2 align="center"> RENC: Ranking of target genes based on ENhancer-promoter Contacts </h2>
 
 <p align="center">
-<img align="center" src="https://github.com/yqsongGitHub/RENC/Images/Schematic.png">
+<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/Schematic.png">
 </p>   
 
 ------------------------------------------------------------------------
@@ -148,7 +148,7 @@ Example:
 --------
 ## Questions & Answers
 Please submit a github issue with any questions or if you experience any issues/bugs.
-- Create a new [issue](https://github.com/yqsongGitHub/RENC/example/issues).
+- Create a new [issue](https://github.com/yqsongGitHub/RENC/issues).
 
 -------
 ## Warning   
