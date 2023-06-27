@@ -32,7 +32,7 @@ For each cell-type, the inputs to the RENC methodology are:
  	* 3. BED file for transcription start site（TSS）of protein coding genes
  	* 4. BED file for gene body of protein coding genes
 * Optional Inputs
- 	*    genes or the genomic coordinate in duplications to search; e.g.,"C4BPB","chr1:201970000-202085000"or "C4BPB:chr1:201970000-202085000"  
+ 	* 5. genes or the genomic coordinate in duplications to search; e.g.,"C4BPB","chr1:201970000-202085000"or "C4BPB:chr1:201970000-202085000"  
 
 ------
 
@@ -86,7 +86,7 @@ column | name | explanation
 
 ### Rountine analysis 2: Get the target gene from input genomic coordinate of the duplicated enhancer.
 
-If using multiple regions as input, please separate them with ***;***. If no results are found, return a ***.***.
+If using multiple regions as input, please separate them with ***;***. If no results are found, return ***.***
 
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
@@ -101,11 +101,11 @@ The informative output is a .RENC.search.txt file with annotation of information
 column | name | explanation
 ------ | ---- | ------------
 1th | enhancer | the input genomic coordinate of the duplicated enhancer.
-2th | gene | the target gene. If no results are found, return a ***.***
+2th | gene | the target gene. If no results are found, return ***.***
 
 ### Rountine analysis 3: Get genomic coordinate of the duplicated enhancer from input target gene.
 
-If using multiple genes as input, please separate them with ***;***. If no results are found, return a ***.***.
+If using multiple genes as input, please separate them with ***;***. If no results are found, return  ***.***
 
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
@@ -118,7 +118,7 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 The informative output is a .RENC.search.txt file with annotation of information as follows.  
 column | name | explanation
 ------ | ---- | ------------
-1th | enhancer | genomic coordinate of the duplicated enhancer. If no results are found, return a ***.***
+1th | enhancer | genomic coordinate of the duplicated enhancer. If no results are found, return ***.***
 2th | gene | the input target gene.
 
 ------
@@ -128,13 +128,13 @@ Run ***bash RENC.sh*** or ***RENC.sh -h*** can show the main functions of RENC.s
 
 ```
 Usage: 
-	bash RENC.sh [-r <RSCRIPT>][-d <DUPLICATION_FILE>] [-c <HICHIP_FILE>][-t <TSS_FILE>][-g <GENEBODY_FILE>]
-       -r Rscript	Rscript file [required].
-       -d DUPLICATION_FILE	Duplication or region file [required].
-       -c HICHIP_FILE	HiChIP file from Hichipper pipeline or other bedpe file [required].
-       -t TSS_FILE	TSS file for protein coding genes or other TSS file [required].
-       -g GENEBODY_FILE	Gene body file for protein coding genes [required].
-       -s GENE_ENH	Gene or region in Duplication to search; ALL gene and region by default. e.g.,"C4BPB","chr1:201970000-202085000" or "C4BPB:chr1:201970000-202085000"
+  bash RENC.sh [-r <RSCRIPT>][-d <DUPLICATION_FILE>] [-c <HICHIP_FILE>][-t <TSS_FILE>][-g <GENEBODY_FILE>]
+  -r Rscript	Rscript file [required].
+  -d DUPLICATION_FILE	Duplication or region file [required].
+  -c HICHIP_FILE	HiChIP file from Hichipper pipeline or other bedpe file [required].
+  -t TSS_FILE	TSS file for protein coding genes or other TSS file [required].
+  -g GENEBODY_FILE	Gene body file for protein coding genes [required].
+  -s GENE_ENH	Gene or region in Duplication to search; ALL gene and region by default. e.g.,"C4BPB","chr1:201970000-202085000" or "C4BPB:chr1:201970000-202085000"
 
 Example:
 	bash ./src/RENC.sh -r ./src/RENC.R  
