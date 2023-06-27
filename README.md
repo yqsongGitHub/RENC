@@ -32,7 +32,7 @@ For each cell-type, the inputs to the RENC methodology are:
  	* 3. BED file for transcription start site（TSS）of protein coding genes
  	* 4. BED file for gene body of protein coding genes
 * Optional Inputs
- 	*   genes or the genomic coordinate in duplications to search; e.g.,"C4BPB","chr1:201970000-202085000"or "C4BPB:chr1:201970000-202085000"  
+ 	*    genes or the genomic coordinate in duplications to search; e.g.,"C4BPB","chr1:201970000-202085000"or "C4BPB:chr1:201970000-202085000"  
 
 ------
 
@@ -84,7 +84,7 @@ column | name | explanation
 18th | enhancer | genomic coordinate of the enhancer
 
 
-### Rountine analysis 2: get the target gene from input genomic coordinate of the duplicated enhancer.
+### Rountine analysis 2: Get the target gene from input genomic coordinate of the duplicated enhancer.
 
 If using multiple regions as input, please separate them with ***;***. If no results are found, return a ***.***.
 
@@ -103,7 +103,7 @@ column | name | explanation
 1th | enhancer | the input genomic coordinate of the duplicated enhancer.
 2th | gene | the target gene. If no results are found, return a ***.***
 
-### Rountine analysis 3: get genomic coordinate of the duplicated enhancer from input target gene.
+### Rountine analysis 3: Get genomic coordinate of the duplicated enhancer from input target gene.
 
 If using multiple genes as input, please separate them with ***;***. If no results are found, return a ***.***.
 
@@ -124,11 +124,11 @@ column | name | explanation
 ------
 ## RENC Main Functions
 
-Run ***bash RENC.sh *** or ***RENC.sh -h*** can show the main functions of RENC.sh with short descriptions and examples.     
+Run ***bash RENC.sh*** or ***RENC.sh -h*** can show the main functions of RENC.sh with short descriptions and examples.     
 
 ```
 Usage: 
-	bash $(echo $0) [-r <RSCRIPT>][-d <DUPLICATION_FILE>] [-c <HICHIP_FILE>][-t <TSS_FILE>][-g <GENEBODY_FILE>]
+	bash RENC.sh [-r <RSCRIPT>][-d <DUPLICATION_FILE>] [-c <HICHIP_FILE>][-t <TSS_FILE>][-g <GENEBODY_FILE>]
        -r Rscript	Rscript file [required].
        -d DUPLICATION_FILE	Duplication or region file [required].
        -c HICHIP_FILE	HiChIP file from Hichipper pipeline or other bedpe file [required].
