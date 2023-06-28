@@ -47,6 +47,29 @@ Reference data is available at [RENC/reference](https://github.com/yqsongGitHub/
  * 3. BED file for transcription start site（TSS）of protein coding genes were download from  [UCSC](https://genome.ucsc.edu/)
  * 4. BED file for gene body of protein coding genes were download from  [UCSC](https://genome.ucsc.edu/)
 
+### Installation
+#### 1. Create Conda environment
+```
+conda create -n RENC
+```
+#### 2. Activate your Conda environment
+```
+conda activate RENC
+```
+
+#### 3. Install bedtools using the Conda package manager
+```
+conda install -c bioconda bedtools
+bedtools -h
+
+```
+#### 4. Download RENC script via GitHub
+```
+git clone https://github.com/yqsongGitHub/RENC.git
+cd RENC
+```
+Then, you can use the following example command lines to test the functionality of RENC after installation.
+
 ### Rountine analysis 1: Get all the enhancer-gene regulatory relationships from the input BEDPE file and BED file.
 
 ```
