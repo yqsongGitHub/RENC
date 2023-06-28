@@ -27,10 +27,10 @@ RENC is designed with respect reference to [BEDTools](http://quinlanlab.org/tuto
 For each cell-type, the inputs to the RENC methodology are:
 
 * Required Inputs
- 	* 1. BED file for the genomic coordinate of duplication or region 
- 	* 2. BEDPE file for HiChIP
- 	* 3. BED file for transcription start site（TSS）of protein coding genes
- 	* 4. BED file for gene body of protein coding genes
+ 	* 1. BED files for the genomic coordinate of duplication or region 
+ 	* 2. BEDPE files for HiChIP
+ 	* 3. BED files for transcription start site（TSS）of protein coding genes
+ 	* 4. BED files for gene body of protein coding genes
 * Optional Inputs
  	* 5. genes or the genomic coordinate in duplications to search; e.g.,"C4BPB","chr1:201970000-202085000"or "C4BPB:chr1:201970000-202085000"  
 
@@ -39,11 +39,11 @@ For each cell-type, the inputs to the RENC methodology are:
 ## Basic Usage and Quick Guide
 ### Example and reference data background introduction
 
-Example data for testing is available at [RENC/example](https://github.com/yqsongGitHub/RENC/example). 
+Example data for testing is available at [RENC/example](https://github.com/yqsongGitHub/RENC/tree/main/example/input). 
  * 1. BED file for the genomic coordinate of duplication or region were from the duplication hotspots of Stomach adenocarcinoma (STAD) in the Pan-Cancer Atlas of Whole Genomes (PCAWG) project.
  * 2. BEDPE file for HiChIP were from HiChIP experiments mapped to hg19 for chromosome 1 in STAD (Stomach adenocarcinoma) cell line. Only intra-chromosomal PETs were kept.
 
-Reference data is available at [RENC/reference](https://github.com/yqsongGitHub/RENC/example).
+Reference data is available at [RENC/reference](https://github.com/yqsongGitHub/RENC/tree/main/reference/hg19).
  * 3. BED file for transcription start site（TSS）of protein coding genes were download from  [UCSC](https://genome.ucsc.edu/)
  * 4. BED file for gene body of protein coding genes were download from  [UCSC](https://genome.ucsc.edu/)
 
