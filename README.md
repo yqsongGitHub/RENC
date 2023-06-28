@@ -32,7 +32,7 @@ For each cell-type, the inputs to the RENC methodology are:
  	* 3. BED files for transcription start site（TSS）of protein coding genes
  	* 4. BED files for gene body of protein coding genes
 * Optional Inputs
- 	* 5. genes or the genomic coordinate in duplications to search; e.g.,"C4BPB","chr1:201970000-202085000"or "C4BPB:chr1:201970000-202085000"  
+ 	* 5. genes or the genomic coordinate in duplications to search; e.g.,"C4BPB","chr1:201970000-202085000"or "C4BPB;chr1:201970000-202085000"  
 
 ------
 
@@ -62,6 +62,7 @@ conda activate RENC
 To install the bedtools as a dependency, once the installation is finished, you can start using bedtools within your Conda environment.
 ```
 conda install -c bioconda bedtools
+# If the installation is successful, the script below should run without any issues
 bedtools -h
 ```
 #### 4. Download RENC script via GitHub
@@ -72,7 +73,7 @@ cd RENC
 ```
 Then, you can use the following example command lines to test the functionality of RENC after installation.
 
-### Rountine analysis 1: Get all the enhancer-gene regulatory relationships from the input BEDPE file and BED file.
+### Routine analysis 1: Get all the enhancer-gene regulatory relationships from the input BEDPE file and BED file.
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
 -d ./example/input/Duplication_STAD_chr1.bed \
@@ -106,7 +107,7 @@ column | name | explanation
 18th | enhancer | genomic coordinate of the enhancer
 
 
-### Rountine analysis 2: Get the target gene from input genomic coordinate of the duplicated enhancer.
+### Routine analysis 2: Get the target gene from input genomic coordinate of the duplicated enhancer.
 
 If using multiple regions as input, please separate them with a semicolon (;). If no results are found, return a placeholder (.).
 
@@ -125,7 +126,7 @@ column | name | explanation
 1th | enhancer | the input genomic coordinate of the duplicated enhancer
 2th | gene | the target gene. If no results are found, return a placeholder (.)
 
-### Rountine analysis 3: Get genomic coordinate of the duplicated enhancer from input target gene.
+### Routine analysis 3: Get genomic coordinate of the duplicated enhancer from input target gene.
 
 If using multiple regions as input, please separate them with a semicolon (;). If no results are found, return a placeholder (.).
 
