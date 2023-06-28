@@ -49,21 +49,23 @@ Reference data is available at [RENC/reference](https://github.com/yqsongGitHub/
 
 ### Installation
 #### 1. Create Conda environment
+By creating a Conda environment, you can have separate environments for different projects or purposes, ensuring that the packages and dependencies within each environment do not conflict with each other.
 ```
 conda create -n RENC
 ```
 #### 2. Activate your Conda environment
+Once the environment is created, you can activate it and start installing packages or running programs within that environment, ensuring that the installed packages and dependencies are isolated from your system's global environment.
 ```
 conda activate RENC
 ```
-
 #### 3. Install bedtools using the Conda package manager
+To install the bedtools as a dependency, once the installation is finished, you can start using bedtools within your Conda environment.
 ```
 conda install -c bioconda bedtools
 bedtools -h
-
 ```
 #### 4. Download RENC script via GitHub
+It is recommended to download using ***git clone***. However, in case of any network issues, you can download directly by clicking the "Download ZIP" button on the GitHub website. By downloading the script, you acquire a local copy of the file that you can use and modify as needed on your own machine.
 ```
 git clone https://github.com/yqsongGitHub/RENC.git
 cd RENC
@@ -71,16 +73,13 @@ cd RENC
 Then, you can use the following example command lines to test the functionality of RENC after installation.
 
 ### Rountine analysis 1: Get all the enhancer-gene regulatory relationships from the input BEDPE file and BED file.
-
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
 -d ./example/input/Duplication_STAD_chr1.bed \
 -c ./example/input/AGS_STAD_chr1.bedpe  \
 -t ./reference/hg19/RefSeq_proteinCoding.tss.bed \
 -g ./reference/hg19/RefSeq_proteinCoding.body.bed 
-
 ```
-
 Please note, in RENC, all files using the reference genome must be consistent, with the example using hg19. If there are files using the hg38 reference genome, the [LiftOver](https://liftover.broadinstitute.org/) tool can be used to convert the hg38 genome to hg19.
 
 The informative output is a .RENC.txt file with annotation of information as follows.  
