@@ -108,7 +108,7 @@ column | name | explanation
 
 ### Rountine analysis 2: Get the target gene from input genomic coordinate of the duplicated enhancer.
 
-If using multiple regions as input, please separate them with a a semicolon (;). If no results are found, return a placeholder (.).
+If using multiple regions as input, please separate them with a semicolon (;). If no results are found, return a placeholder (.).
 
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
@@ -127,7 +127,7 @@ column | name | explanation
 
 ### Rountine analysis 3: Get genomic coordinate of the duplicated enhancer from input target gene.
 
-If using multiple regions as input, please separate them with a a semicolon (;). If no results are found, return a placeholder (.).
+If using multiple regions as input, please separate them with a semicolon (;). If no results are found, return a placeholder (.).
 
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
