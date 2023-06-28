@@ -146,10 +146,10 @@ column | name | explanation
 ------
 ## RENC Main Functions
 
-Run ***bash RENC.sh*** or ***RENC.sh -h*** can show the main functions of RENC.sh with short descriptions and examples.     
+Run ***bash RENC.sh*** or ***bash RENC.sh -h*** can show the main functions of RENC.sh with short descriptions and examples.     
 
 ```
-Usage: 
+Usage:   
   bash RENC.sh [-r <RSCRIPT>][-d <DUPLICATION_FILE>] [-c <HICHIP_FILE>][-t <TSS_FILE>][-g <GENEBODY_FILE>]
   -r Rscript	Rscript file [required].
   -d DUPLICATION_FILE	Duplication or region file [required].
@@ -158,12 +158,12 @@ Usage:
   -g GENEBODY_FILE	Gene body file for protein coding genes [required].
   -s GENE_ENH	Gene or region in Duplication to search; ALL gene and region by default. e.g.,"C4BPB","chr1:201970000-202085000" or "C4BPB:chr1:201970000-202085000"
 
-Example:
-	bash ./src/RENC.sh -r ./src/RENC.R  
-	-d ./example/input/Duplication_STAD_chr1.bed  
-	-c ./example/input/AGS_STAD_chr1.bedpe  
-	-t ./reference/hg19/RefSeq_proteinCoding.tss.bed  
-	-g ./reference/hg19/RefSeq_proteinCoding.body.bed 
+Example:     
+  bash ./src/RENC.sh -r ./src/RENC.R  
+  -d ./example/input/Duplication_STAD_chr1.bed  
+  -c ./example/input/AGS_STAD_chr1.bedpe  
+  -t ./reference/hg19/RefSeq_proteinCoding.tss.bed  
+  -g ./reference/hg19/RefSeq_proteinCoding.body.bed 
 
 ```
 
