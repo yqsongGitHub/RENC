@@ -108,7 +108,7 @@ column | name | explanation
 
 ### Rountine analysis 2: Get the target gene from input genomic coordinate of the duplicated enhancer.
 
-If using multiple regions as input, please separate them with ***;***. If no results are found, return ***.***
+If using multiple regions as input, please separate them with a a semicolon (;). If no results are found, return a placeholder (.).
 
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
@@ -122,12 +122,12 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 The informative output is a .RENC.search.txt file with annotation of information as follows.  
 column | name | explanation
 ------ | ---- | ------------
-1th | enhancer | the input genomic coordinate of the duplicated enhancer.
-2th | gene | the target gene. If no results are found, return ***.***
+1th | enhancer | the input genomic coordinate of the duplicated enhancer
+2th | gene | the target gene. If no results are found, return a placeholder (.)
 
 ### Rountine analysis 3: Get genomic coordinate of the duplicated enhancer from input target gene.
 
-If using multiple genes as input, please separate them with ***;***. If no results are found, return  ***.***
+If using multiple regions as input, please separate them with a a semicolon (;). If no results are found, return a placeholder (.).
 
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
@@ -140,8 +140,8 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 The informative output is a .RENC.search.txt file with annotation of information as follows.  
 column | name | explanation
 ------ | ---- | ------------
-1th | enhancer | genomic coordinate of the duplicated enhancer. If no results are found, return ***.***
-2th | gene | the input target gene.
+1th | enhancer | genomic coordinate of the duplicated enhancer. If no results are found, return a placeholder (.)
+2th | gene | the input target gene
 
 ------
 ## RENC Main Functions
