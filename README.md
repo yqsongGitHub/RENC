@@ -20,7 +20,7 @@ To determine the enhancer-gene relationships, we employed HiChIP paired-end tags
 
 Through the utilization of RENC, our methodology offers a comprehensive framework for identifying and prioritizing target genes in duplication hotspots, considering enhancer-gene relationships from multiple perspectives.<br />
 
-RENC is designed with respect reference to [BEDTools](http://quinlanlab.org/tutorials/bedtools/bedtools.html) for command-line style programming，we provide a shell script and user guide via this github page.
+RENC is designed with respect reference to [BEDTools](http://quinlanlab.org/tutorials/bedtools/bedtools.html) for command-line style programming, we provide a shell script and user guide via this github page.
 
 ------
 ## Requirements
