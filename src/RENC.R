@@ -90,7 +90,7 @@ cal_hichip_by_gene <- function(hichip.tss,hichip1,hichip2,hichip3,tss,fc.dat=NUL
   if(!is.null(fc.dat)){
     hichip5 <- merge(hichip5,fc.dat,by.x="gene",by.y ="gene")
   }
-  hichip5 <- hichip5[,c(8:13,7,3:5,17:19,21:22,6,23,29)]
+  hichip5 <- hichip5[,c(8:13,7,3:5,17:19,21:22,6,1,23,29)]
   return(hichip5)
 }
 
