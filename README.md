@@ -103,8 +103,9 @@ column | name | explanation
 14th | score | RENC score for the enhancer interacting with the gene is calculated by multiplying the amount of duplicated enhancer activity (dup_sum_pets) by the relative contribution of the duplicated enhancer activity (percentage)
 15th | rank_gene | the rank of the target genes for the enhancers in the duplication hotspot
 16th | gene | the specific symbol or identifier associated with the candidate gene
-17th | rank_enhancer | the rank of the enhancers in the duplication hotspot delivered to the candidate gene
-18th | enhancer | genomic coordinate of the enhancer
+17th | ID | the transcript ID or identifier associated with the candidate gene
+18th | rank_enhancer | the rank of the enhancers in the duplication hotspot delivered to the candidate gene
+19th | enhancer | genomic coordinate of the enhancer
 
 
 ### Routine analysis 2: Get the target gene from input genomic coordinate of the duplicated enhancer.
