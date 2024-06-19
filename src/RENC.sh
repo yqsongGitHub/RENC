@@ -115,6 +115,7 @@ mv *_gene_tss_in_dup.bedpe output/gene_tss_in_dup
 #echo "=====Rscript begin====="
 echo "Run script: ${RSCRIPT} ${TSS_FILE} ${GENE_ENH}"
 Rscript ${RSCRIPT} ${TSS_FILE} ${GENE_ENH}
+cp output/bedpe_tss/*_tss.bed .
 rm -rf output
 
 master_time_end=`date +%s`
