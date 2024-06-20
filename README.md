@@ -221,7 +221,7 @@ We selected the region from 73,205,000 to 74,345,000 on chromosome 13, which inc
 
 Here is the plot of KLF5 that we created. Further editing and enhancement using [Adobe Illustrator](https://www.adobe.com/products/illustrator/free-trial-download.html) is required.
 <p align="center">
-<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5.png" width="90%" height="90%">
+<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5.png" width="80%" height="80%">
 </p>  
 
 ```
@@ -288,7 +288,7 @@ dev.off()
 In step 2, we obtained the plot of KLF5. We used [Adobe Illustrator](https://www.adobe.com/products/illustrator/free-trial-download.html) to enhance the representation of protein-coding genes and annotated the previously publishedfunctional enhancers for KLF5.
 
 <p align="center">
-<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5_ai.png" width="100%" height="100%">
+<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5_ai.png" width="80%" height="80%">
 </p>  
 
 --------
