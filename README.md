@@ -20,16 +20,10 @@ To determine the enhancer-gene relationships, we employed HiChIP paired-end tags
 
 The formula is as follows：
 <p align="center">
-<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/Formula.png">
+<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/Formula.png" alt="Formula" width="30%" height="30%">
 </p>   
 
-```math
-
-{RENC}_{score}=\sum_{i\in E_{in}} E_i\times\ \frac{\sum_{i\in E_{in}} E_i}{\sum_{i\in E_{in}} E_i+\sum_{i\in E_{out}} E_i}
-
-```
-
-`$E_i$` is the number of PETs connecting the enhancer i to a candidate gene’s promoter. `$E_{in}$` is all enhancers within the hotspot connecting to the candidate gene promoter. `$E_{out}$` is all enhancers outside the hotspot connecting to the candidate gene promoter. `$\sum_{i\in E_{in}}$` E_i is the total number of PETs connecting the enhancers within the hotspot to a candidate gene’s promoter.`$\sum_{i\in E_{out}}$` E_i is the total number of PETs connecting the enhancers outside the hotspot to a candidate gene’s promoter.
+$E_i$ is the number of PETs connecting the enhancer i to a candidate gene’s promoter. $E_{in}$ is all enhancers within the hotspot connecting to the candidate gene promoter. $E_{out}$ is all enhancers outside the hotspot connecting to the candidate gene promoter. $\sum_{i\in E_{in}} E_i$is the total number of PETs connecting the enhancers within the hotspot to a candidate gene’s promoter. $\sum_{i\in E_{out}} E_i$is the total number of PETs connecting the enhancers outside the hotspot to a candidate gene’s promoter.
 
 Through the utilization of RENC, our methodology offers a comprehensive framework for identifying and prioritizing target genes in duplication hotspots, considering enhancer-gene relationships from multiple perspectives.<br />
 
@@ -192,11 +186,10 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 -c ./example/input/SqCC_BICR31.bedpe  \
 -t ./reference/hg19/RefSeq_proteinCoding.tss.bed \
 -g ./reference/hg19/RefSeq_proteinCoding.body.bed
-
 ```
 
 ### Step2: Visualize the region near KLF5.
-#### step2.1：Set global variables and load R packages.
+#### Step2.1：Set global variables and load R packages.
 We used R version 4.2.2 and the [gTrack](https://github.com/mskilab-org/gTrack) package for visualization.
 We also need to load some functions.
 ```
@@ -209,7 +202,7 @@ options(scipen = 100)
 options(warn = -1)
 ```
 
-#### step2.2：Set global variables and load R packages.
+#### Step2.2：Set global variables and load R packages.
 Here we load some necessary files, including the ***SqCC_BICR31_RENC.txt*** and ***SqCC_BICR31_tss.bed*** files generated in step 1.
 ```
 gt.ge <- readRDS("./data/gt.ge.rds")
@@ -223,12 +216,12 @@ pps <- read.table("./example/output/SqCC_BICR31_RENC.txt",header = T)
 bp <- read.table("./example/output/SqCC_BICR31_tss.bed")
 ```
 
-#### step2.3：Visualize the region near KLF5
+#### Step2.3：Visualize the region near KLF5
 We selected the region from 73,205,000 to 74,345,000 on chromosome 13, which includes H3K27ac HiChIP signal, positions of duplication hotspots, duplication events observed in squamous cancer, H3K27ac ChIP-seq signal, RENC scores prioritizing genes that are more likely to be activated by enhancers within the first duplication hotspot presented in the window, and relative contributions of the enhancers to KLF5.
 
 Here is the plot of KLF5 that we created. Further editing and enhancement using [Adobe Illustrator](https://www.adobe.com/products/illustrator/free-trial-download.html) is required.
 <p align="center">
-<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5.png">
+<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5.png" width="50%" height="50%">
 </p>  
 
 ```
@@ -289,14 +282,13 @@ enr.gr <- gTrack(enr.gr, y.field = 'pets',
 pdf("./Images/BICR31_KLF5.pdf",height = 12,width = 8)
 plot(c(enr.gr,pps.gr1,chip.gr.score,dup.gr,hs.gr,gt.ge,dat.gt),wins)
 dev.off()
-
 ```
 
 ### Step3 : Enhance the image using Adobe Illustrator.
 In step 2, we obtained the plot of KLF5. We used [Adobe Illustrator](https://www.adobe.com/products/illustrator/free-trial-download.html) to enhance the representation of protein-coding genes and annotated the previously publishedfunctional enhancers for KLF5.
 
 <p align="center">
-<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5_ai.png">
+<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5_ai.png" width="50%" height="50%">
 </p>  
 
 --------
