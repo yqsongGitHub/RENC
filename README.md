@@ -177,7 +177,7 @@ Example:
 ```
 
 ------
-## KLF5 example
+## Example: KLF5 is the top candidate target in squamous cell carcinoma
 ### Step1:  Get all the enhancer-gene regulatory relationships from the input BEDPE file and BED file. 
 The ***Duplication_Squamous.bed*** file contains the genomic coordinates of duplication hotspots or regions associated with squamous cell carcinoma. The ***SqCC_BICR31.bedpe*** file, derived from HiChIP experiments, is mapped to hg19 in the BICR31 (squamous cell carcinoma) cell line. The ***output*** provides all the enhancer-gene regulatory relationships and the RENC score for each candidate gene, including KLF5.
 ```
@@ -202,7 +202,7 @@ options(scipen = 100)
 options(warn = -1)
 ```
 
-#### Step2.2：Set global variables and load R packages.
+#### Step2.2：Load the required files.
 Here we load some necessary files, including the ***SqCC_BICR31_RENC.txt*** and ***SqCC_BICR31_tss.bed*** files generated in step 1.
 ```
 gt.ge <- readRDS("./data/gt.ge.rds")
@@ -285,7 +285,7 @@ dev.off()
 ```
 
 ### Step3 : Enhance the image using Adobe Illustrator.
-In step 2, we obtained the plot of KLF5. We used [Adobe Illustrator](https://www.adobe.com/products/illustrator/free-trial-download.html) to enhance the representation of protein-coding genes and annotated the previously publishedfunctional enhancers for KLF5.
+In step 2, we obtained the plot of KLF5. Then, we used [Adobe Illustrator](https://www.adobe.com/products/illustrator/free-trial-download.html) to enhance the representation of protein-coding genes and annotated the previously published functional enhancers for KLF5.
 
 <p align="center">
 <img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5_ai.png" width="80%" height="80%">
