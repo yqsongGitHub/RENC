@@ -20,10 +20,10 @@ To determine the enhancer-gene relationships, we employed HiChIP paired-end tags
 
 The formula is as follows：
 <p align="center">
-<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/Formula.png" alt="Formula" width="30%" height="30%">
+<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/Formula.png" alt="Formula" width="50%" height="50%">
 </p>   
 
-$E_i$ is the number of PETs connecting the enhancer i to a candidate gene’s promoter. $E_{in}$ is all enhancers within the hotspot connecting to the candidate gene promoter. $E_{out}$ is all enhancers outside the hotspot connecting to the candidate gene promoter. $\sum_{i\in E_{in}} E_i$is the total number of PETs connecting the enhancers within the hotspot to a candidate gene’s promoter. $\sum_{i\in E_{out}} E_i$is the total number of PETs connecting the enhancers outside the hotspot to a candidate gene’s promoter.
+$E_i$ is the number of PETs connecting the enhancer i to a candidate gene’s promoter. $E_{in}$ is all enhancers within the hotspot connecting to the candidate gene promoter. $E_{out}$ is all enhancers outside the hotspot connecting to the candidate gene promoter. $\sum_{i\in E_{in}} E_i$ is the total number of PETs connecting the enhancers within the hotspot to a candidate gene’s promoter. $\sum_{i\in E_{out}} E_i$ is the total number of PETs connecting the enhancers outside the hotspot to a candidate gene’s promoter.
 
 Through the utilization of RENC, our methodology offers a comprehensive framework for identifying and prioritizing target genes in duplication hotspots, considering enhancer-gene relationships from multiple perspectives.<br />
 
@@ -221,7 +221,7 @@ We selected the region from 73,205,000 to 74,345,000 on chromosome 13, which inc
 
 Here is the plot of KLF5 that we created. Further editing and enhancement using [Adobe Illustrator](https://www.adobe.com/products/illustrator/free-trial-download.html) is required.
 <p align="center">
-<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5.png" width="50%" height="50%">
+<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5.png" width="90%" height="90%">
 </p>  
 
 ```
@@ -288,7 +288,7 @@ dev.off()
 In step 2, we obtained the plot of KLF5. We used [Adobe Illustrator](https://www.adobe.com/products/illustrator/free-trial-download.html) to enhance the representation of protein-coding genes and annotated the previously publishedfunctional enhancers for KLF5.
 
 <p align="center">
-<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5_ai.png" width="50%" height="50%">
+<img align="center" src="https://github.com/yqsongGitHub/RENC/blob/main/Images/BICR31_KLF5_ai.png" width="100%" height="100%">
 </p>  
 
 --------
