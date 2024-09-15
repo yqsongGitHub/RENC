@@ -163,9 +163,9 @@ Usage:
   -r Rscript          Rscript file [required].
   -d DUPLICATION_FILE Duplication or region file [required].
   -c HICHIP_FILE      HiChIP file from Hichipper pipeline or other bedpe file [required].
-  -t TSS_FILE	        TSS file for protein coding genes or other TSS file [required].
-  -g GENEBODY_FILE	  Gene body file for protein coding genes [required].
-  -s GENE_ENH	        Gene or region in Duplication to search; ALL gene and region by default. e.g.,"C4BPB","chr1:201970000-202085000" or "C4BPB:chr1:201970000-202085000"
+  -t TSS_FILE         TSS file for protein coding genes or other TSS file [required].
+  -g GENEBODY_FILE    Gene body file for protein coding genes [required].
+  -s GENE_ENH         Gene or region in Duplication to search; ALL gene and region by default. e.g.,"C4BPB","chr1:201970000-202085000" or "C4BPB:chr1:201970000-202085000"
 
 Example:     
   bash ./src/RENC.sh -r ./src/RENC.R  
