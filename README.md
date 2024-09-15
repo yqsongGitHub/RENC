@@ -90,7 +90,7 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 ```
 Please note, in RENC, all files using the reference genome must be consistent, with the example using hg19. If there are files using the hg38 reference genome, the [LiftOver](https://liftover.broadinstitute.org/) tool can be used to convert the hg38 genome to hg19.
 
-The informative output is a .RENC.txt file with annotation of information as follows.  
+The output is a .RENC.txt file with annotation of information as follows.  
 
 column | name | explanation
 ------ | ---- | ------------
@@ -121,14 +121,14 @@ If using multiple regions as input, please separate them with a semicolon (;). I
 
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
--d ./example/input/Duplication_STAD_chr1.bed \
+-d ./example/input/Duplication_STAD.bed \
 -c ./example/input/AGS_STAD_chr1.bedpe  \
 -t ./reference/hg19/RefSeq_proteinCoding.tss.bed \
 -g ./reference/hg19/RefSeq_proteinCoding.body.bed \
 -s  "chr1:201970000-202085000;chr1:33135000-33370000"
 ```
 
-The informative output is a .RENC.search.txt file with annotation of information as follows.  
+The output is a .RENC.search.txt file with annotation of information as follows.  
 column | name | explanation
 ------ | ---- | ------------
 1th | enhancer | the input genomic coordinates of specific duplication hotspots
@@ -140,7 +140,7 @@ If using multiple regions as input, please separate them with a semicolon (;). I
 
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
--d ./example/input/Duplication_STAD_chr1.bed \
+-d ./example/input/Duplication_STAD.bed \
 -c ./example/input/AGS_STAD_chr1.bedpe  \
 -t ./reference/hg19/RefSeq_proteinCoding.tss.bed \
 -g ./reference/hg19/RefSeq_proteinCoding.body.bed \
@@ -160,16 +160,16 @@ Run ***bash RENC.sh*** or ***bash RENC.sh -h*** can show the main functions of R
 ```
 Usage:   
   bash RENC.sh [-r <RSCRIPT>][-d <DUPLICATION_FILE>] [-c <HICHIP_FILE>][-t <TSS_FILE>][-g <GENEBODY_FILE>]
-  -r Rscript	Rscript file [required].
-  -d DUPLICATION_FILE	Duplication or region file [required].
-  -c HICHIP_FILE	HiChIP file from Hichipper pipeline or other bedpe file [required].
-  -t TSS_FILE	TSS file for protein coding genes or other TSS file [required].
-  -g GENEBODY_FILE	Gene body file for protein coding genes [required].
-  -s GENE_ENH	Gene or region in Duplication to search; ALL gene and region by default. e.g.,"C4BPB","chr1:201970000-202085000" or "C4BPB:chr1:201970000-202085000"
+  -r Rscript          Rscript file [required].
+  -d DUPLICATION_FILE Duplication or region file [required].
+  -c HICHIP_FILE      HiChIP file from Hichipper pipeline or other bedpe file [required].
+  -t TSS_FILE	        TSS file for protein coding genes or other TSS file [required].
+  -g GENEBODY_FILE	  Gene body file for protein coding genes [required].
+  -s GENE_ENH	        Gene or region in Duplication to search; ALL gene and region by default. e.g.,"C4BPB","chr1:201970000-202085000" or "C4BPB:chr1:201970000-202085000"
 
 Example:     
   bash ./src/RENC.sh -r ./src/RENC.R  
-  -d ./example/input/Duplication_STAD_chr1.bed  
+  -d ./example/input/Duplication_STAD.bed  
   -c ./example/input/AGS_STAD_chr1.bedpe  
   -t ./reference/hg19/RefSeq_proteinCoding.tss.bed  
   -g ./reference/hg19/RefSeq_proteinCoding.body.bed 
