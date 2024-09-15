@@ -14,9 +14,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 ## Introduction 
-Our objective was to identify the target genes associated with putative enhancers located within duplication hotspots. These hotspots often contain multiple putative enhancer elements, forming complex enhancer-promoter pairs that pose challenges in pinpointing the actual targets of duplication events. To address this, we developed an innovative methodology called Ranking of target genes based on ENhancer-promoter Contacts (RENC). RENC enables the definition of enhancer-gene relationships for duplication hotspots, considering both the enhancer and the gene's perspectives.
+We developed a methodology called Ranking of target genes based on ENhancer-promoter Contacts (RENC), which utilizes HiChIP data to prioritize target genes associated with putative enhancers located within duplication hotspots.
 
-To determine the enhancer-gene relationships, we employed HiChIP paired-end tags (PETs) specifically for enhancers within each duplication hotspot. This allowed us to measure the amount of enhancer activity delivered to each candidate gene, referred to as hotspot-delivered enhancer activity. Subsequently, we evaluated the relative contribution of hotspot-delivered enhancer activity for each candidate gene, as a percentage of the overall activity delivered by all enhancers interacting with that gene. To prioritize target genes for enhancers within the duplication hotspots, we multiplied these two factors—hotspot-delivered enhancer activity and the relative contribution—to assign a ranking. Additionally, we applied weights to the enhancers associated with each target gene based on their respective contributions.
+For enhancers in each duplication hotspot, we use HiChIP paired-end tags (PETs) to measure the amount of enhancer activity delivered to each gene’s promoter via significant HiChIP loops (hotspot-delivered enhancer activity). Then, for each of the candidate genes, we measure the relative contribution of the hotspot-delivered enhancer activity as percentage of activity delivered from all enhancers (inside and outside of the hotspot) interacting with the gene’s promoter. We multiply these two factors to prioritize target genes for the enhancers in the duplication hotspots.
 
 The formula is as follows：
 <p align="center">
@@ -27,21 +27,19 @@ For a given duplication hotspot, $`E_{in}`$ is the sum of the PETs from all sign
 
 For genes that have multiple promoters, each of the promoters will be treated separately and the promoter with the highest RENC score will be used to represent the gene. Genes not linked to the duplication hotspot through a significant enhancer-promoter HiChIP loop are given a RENC score of zero. For cancer types that have HiChIP data available from more than one cell line, we selected the prioritized gene promoters that are shared. As the RENC score is calculated per duplication hotspot, genes linked to different hotspots are not compared to each other.
 
-Through the utilization of RENC, our methodology offers a comprehensive framework for identifying and prioritizing target genes in duplication hotspots, considering enhancer-gene relationships from multiple perspectives.<br />
-
-RENC is designed with respect reference to [BEDTools](http://quinlanlab.org/tutorials/bedtools/bedtools.html) for command-line style programming, we provide a shell script and user guide via this github page.
+The RENC methodology provides a framework to prioritize target genes for enhancers in duplication hotspots. RENC is designed with reference to [BEDTools](http://quinlanlab.org/tutorials/bedtools/bedtools.html) for command-line style programming. We provide a shell script and user guide in this github page.
 
 ------
 ## Requirements
 For each cell-type, the inputs to the RENC methodology are:
 
 * Required Inputs
- 	* 1. BED files for the genomic coordinate of duplication or region 
- 	* 2. BEDPE files for HiChIP
+ 	* 1. BED files for the genomic coordinates (e.g. duplication hotspot regions) 
+ 	* 2. BEDPE files derived from HiChIP results
  	* 3. BED files for transcription start site（TSS）of protein coding genes
  	* 4. BED files for gene body of protein coding genes
 * Optional Inputs
- 	* 5. genes or the genomic coordinate in duplications to search; e.g.,"C4BPB","chr1:201970000-202085000"or "C4BPB;chr1:201970000-202085000"  
+ 	* 5. specific genes or the genomic coordinates of duplication hotspots to search; e.g.,"C4BPB","chr1:201970000-202085000"or "C4BPB;chr1:201970000-202085000"  
 
 ------
 
@@ -49,26 +47,26 @@ For each cell-type, the inputs to the RENC methodology are:
 ### Example and reference data background introduction
 
 Example data for testing is available at [RENC/example](https://github.com/yqsongGitHub/RENC/tree/main/example/input). 
- * 1. BED file for the genomic coordinate of duplication or region were from the duplication hotspots of Stomach adenocarcinoma (STAD) in the Pan-Cancer Atlas of Whole Genomes (PCAWG) project.
- * 2. BEDPE file for HiChIP were from HiChIP experiments mapped to hg19 for chromosome 1 in STAD (Stomach adenocarcinoma) cell line. Only intra-chromosomal PETs were kept.
+ * 1. BED file for the genomic coordinates of duplication hotspots of stomach adenocarcinoma (STAD), derived from Pan-Cancer Atlas of Whole Genomes (PCAWG) data.
+ * 2. BEDPE file of significant loops derived from HiChIP results for chromosome 1 in the STAD cell line AGS.
 
 Reference data is available at [RENC/reference](https://github.com/yqsongGitHub/RENC/tree/main/reference/hg19).
- * 3. BED file for transcription start site（TSS）of protein coding genes were download from  [UCSC](https://genome.ucsc.edu/)
- * 4. BED file for gene body of protein coding genes were download from  [UCSC](https://genome.ucsc.edu/)
+ * 3. BED file for transcription start site（TSS）of protein coding genes downloaded from  [UCSC](https://genome.ucsc.edu/)
+ * 4. BED file for gene body of protein coding genes downloaded from  [UCSC](https://genome.ucsc.edu/)
 
 ### Installation
 #### 1. Create Conda environment
-By creating a Conda environment, you can have separate environments for different projects or purposes, ensuring that the packages and dependencies within each environment do not conflict with each other.
+By creating a Conda environment, you can have separate environments for different projects or purposes. Ensure that the packages and dependencies within each environment do not conflict with each other.
 ```
 conda create -n RENC
 ```
 #### 2. Activate your Conda environment
-Once the environment is created, you can activate it and start installing packages or running programs within that environment, ensuring that the installed packages and dependencies are isolated from your system's global environment.
+Once the environment is created, you can activate it and start installing packages or running programs within that environment. Ensure that the installed packages and dependencies are isolated from your system's global environment.
 ```
 conda activate RENC
 ```
 #### 3. Install bedtools using the Conda package manager
-To install the bedtools as a dependency, once the installation is finished, you can start using bedtools within your Conda environment.
+Install bedtools in your Conda environment.
 ```
 conda install -c bioconda bedtools
 # If the installation is successful, the script below should run without any issues
@@ -85,7 +83,7 @@ Then, you can use the following example command lines to test the functionality 
 ### Routine analysis 1: Get all the enhancer-gene regulatory relationships from the input BEDPE file and BED file.
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
--d ./example/input/Duplication_STAD_chr1.bed \
+-d ./example/input/Duplication_STAD.bed \
 -c ./example/input/AGS_STAD_chr1.bedpe  \
 -t ./reference/hg19/RefSeq_proteinCoding.tss.bed \
 -g ./reference/hg19/RefSeq_proteinCoding.body.bed 
@@ -114,10 +112,10 @@ column | name | explanation
 16th | gene | the specific symbol or identifier associated with the candidate gene
 17th | ID | the transcript ID or identifier associated with the candidate gene
 18th | rank_enhancer | the rank of the enhancers in the duplication hotspot delivered to the candidate gene
-19th | enhancer | genomic coordinate of the enhancer
+19th | enhancer | genomic coordinates of the linked enhancers
 
 
-### Routine analysis 2: Get the target gene from input genomic coordinate of the duplicated enhancer.
+### Routine analysis 2: Get the target genes from input genomic coordinates of specific duplication hotspots.
 
 If using multiple regions as input, please separate them with a semicolon (;). If no results are found, return a placeholder (.).
 
@@ -133,10 +131,10 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 The informative output is a .RENC.search.txt file with annotation of information as follows.  
 column | name | explanation
 ------ | ---- | ------------
-1th | enhancer | the input genomic coordinate of the duplicated enhancer
+1th | enhancer | the input genomic coordinates of specific duplication hotspots
 2th | gene | the target gene. If no results are found, return a placeholder (.)
 
-### Routine analysis 3: Get genomic coordinate of the duplicated enhancer from input target gene.
+### Routine analysis 3: Get genomic coordinates of the duplicated enhancers associated with input target genes.
 
 If using multiple regions as input, please separate them with a semicolon (;). If no results are found, return a placeholder (.).
 
@@ -148,10 +146,10 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 -g ./reference/hg19/RefSeq_proteinCoding.body.bed \
 -s  "C4BPB;ELF3"
 ```
-The informative output is a .RENC.search.txt file with annotation of information as follows.  
+The output is a .RENC.search.txt file with annotation of information as follows.  
 column | name | explanation
 ------ | ---- | ------------
-1th | enhancer | genomic coordinate of the duplicated enhancer. If no results are found, return a placeholder (.)
+1th | enhancer | genomic coordinate of duplicated enhancers associated with input target genes. If no results are found, return a placeholder (.)
 2th | gene | the input target gene
 
 ------
@@ -181,7 +179,7 @@ Example:
 ------
 ## Example: KLF5 is the top candidate target in squamous cell carcinoma
 ### Step1:  Get all the enhancer-gene regulatory relationships from the input BEDPE file and BED file. 
-The ***Duplication_Squamous.bed*** file contains the genomic coordinates of duplication hotspots or regions associated with squamous cell carcinoma. The ***SqCC_BICR31.bedpe*** file, derived from HiChIP experiments, is mapped to hg19 in the BICR31 (squamous cell carcinoma) cell line. The ***output*** provides all the enhancer-gene regulatory relationships and the RENC score for each candidate gene, including KLF5.
+The ***Duplication_Squamous.bed*** file contains the genomic coordinates of duplication hotspots of squamous cell carcinoma. The ***SqCC_BICR31.bedpe*** file, derived from HiChIP experiments, is mapped to hg19 in the BICR31 (squamous cell carcinoma) cell line. The ***output*** provides all the enhancer-gene regulatory relationships and the RENC score for each candidate gene, including KLF5.
 ```
 bash ./src/RENC.sh -r ./src/RENC.R  \
 -d ./example/input/Duplication_Squamous.bed \
@@ -219,7 +217,7 @@ bp <- read.table("./example/output/SqCC_BICR31_tss.bed")
 ```
 
 #### Step2.3：Visualize the region near KLF5
-We selected the region from 73,205,000 to 74,345,000 on chromosome 13, which includes H3K27ac HiChIP signal, positions of duplication hotspots, duplication events observed in squamous cancer, H3K27ac ChIP-seq signal, RENC scores prioritizing genes that are more likely to be activated by enhancers within the first duplication hotspot presented in the window, and relative contributions of the enhancers to KLF5.
+We selected the region from 73,205,000 to 74,345,000 on chromosome 13 for presentation, which includes H3K27ac HiChIP signal, positions of duplication hotspots, duplication events observed in squamous cancer, H3K27ac ChIP-seq signal, RENC scores prioritizing the KLF5 promoter that is more likely to be activated by enhancers within the left duplication hotspot presented in the window, and the number of PETs contributed by each interacting enhancer to KLF5. 
 
 Here is the plot of KLF5 that we created. Further editing and enhancement using [Adobe Illustrator](https://www.adobe.com/products/illustrator/free-trial-download.html) is required.
 <p align="center">
