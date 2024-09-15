@@ -39,7 +39,7 @@ For each cell-type, the inputs to the RENC methodology are:
  	* 3. BED files for transcription start site（TSS）of protein coding genes
  	* 4. BED files for gene body of protein coding genes
 * Optional Inputs
- 	* 5. specific genes or the genomic coordinates of duplication hotspots to search; e.g.,"C4BPB","chr1:201970000-202085000"or "C4BPB;chr1:201970000-202085000"  
+ 	* 5. specific genes or the genomic coordinates of duplication hotspots to search; e.g.,"MEF2D","chr1:201970000-202085000"or "MEF2D;chr1:201970000-202085000"  
 
 ------
 
@@ -144,7 +144,7 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 -c ./example/input/AGS_STAD_chr1.bedpe  \
 -t ./reference/hg19/RefSeq_proteinCoding.tss.bed \
 -g ./reference/hg19/RefSeq_proteinCoding.body.bed \
--s  "C4BPB;ELF3"
+-s  "MEF2D;ELF3"
 ```
 The output is a .RENC.search.txt file with annotation of information as follows.  
 column | name | explanation
@@ -165,7 +165,7 @@ Usage:
   -c HICHIP_FILE      HiChIP file from Hichipper pipeline or other bedpe file [required].
   -t TSS_FILE         TSS file for protein coding genes or other TSS file [required].
   -g GENEBODY_FILE    Gene body file for protein coding genes [required].
-  -s GENE_ENH         Gene or region in Duplication to search; ALL gene and region by default. e.g.,"C4BPB","chr1:201970000-202085000" or "C4BPB:chr1:201970000-202085000"
+  -s GENE_ENH         Gene or region in Duplication to search; ALL gene and region by default. e.g.,"MEF2D","chr1:201970000-202085000" or "MEF2D:chr1:201970000-202085000"
 
 Example:     
   bash ./src/RENC.sh -r ./src/RENC.R  

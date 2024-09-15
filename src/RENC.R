@@ -110,7 +110,7 @@ sel_gene_enh <- function(RENC,tss,fea){
       }
       re0 <- rbind(re0,re2)
     }else{
-      re1 <- RENC[RENC$gene %in% i & RENC$rank_enhancer==1,]
+      re1 <- RENC[RENC$gene %in% i & RENC$rank_enhancer==1 & RENC$rank_gene==1,]
       if(nrow(re1)==0){
         re2 <- data.frame("enhancer"=".","gene"=i)
       }else{
