@@ -94,14 +94,14 @@ The output is a .RENC.txt file with annotation of information as follows.
 
 column | name | explanation
 ------ | ---- | ------------
-1th | chr1 | chromosomal for the loop first anchor
+1th | chr1 | chromosome number of the loop first anchor
 2th | start1 | genomic coordinate of the start site for the first anchor
 3th | end1 | genomic coordinate of the end site for the first anchor
-4th | chr2 | chromosomal for the loop second anchor
+4th | chr2 | chromosome number of the loop second anchor
 5th | start2 | genomic coordinate of the start site for the second anchor
 6th | end2 | genomic coordinate of the end site for the second anchor
-7th | pets | observed paired-end tags number linking the two anchors
-8th | chr | chromosomal for the duplication
+7th | pets | number of paired-end tags linking the two anchors
+8th | chr | chromosome number of the duplication
 9th | start | genomic coordinate of the start site for the duplication
 10th | end | genomic coordinate of the end site for the duplication
 11th | dup_sum_pets | the amount of duplicated enhancer activity delivered to the candidate gene
@@ -131,10 +131,10 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 The output is a .RENC.search.txt file with annotation of information as follows.  
 column | name | explanation
 ------ | ---- | ------------
-1th | enhancer | the input genomic coordinates of specific duplication hotspots
+1th | enhancer | genomic coordinate of duplicated strongest enhancer associated with the input target gene (based on PETs). If no results are found, return a placeholder (.)
 2th | gene | the target gene. If no results are found, return a placeholder (.)
 
-### Routine analysis 3: Get genomic coordinates of the duplicated enhancers associated with input target genes.
+### Routine analysis 3: Get  genomic coordinate of the duplicated strongest enhancer associated with the input target gene (based on PETs).
 
 If using multiple regions as input, please separate them with a semicolon (;). If no results are found, return a placeholder (.).
 
@@ -168,16 +168,16 @@ Usage:
   -s GENE_ENH         Gene or region in Duplication to search; ALL gene and region by default. e.g.,"MEF2D","chr1:201970000-202085000" or "MEF2D:chr1:201970000-202085000"
 
 Example:     
-  bash ./src/RENC.sh -r ./src/RENC.R  
-  -d ./example/input/Duplication_STAD.bed  
-  -c ./example/input/AGS_STAD_chr1.bedpe  
-  -t ./reference/hg19/RefSeq_proteinCoding.tss.bed  
+  bash ./src/RENC.sh -r ./src/RENC.R \  
+  -d ./example/input/Duplication_STAD.bed \  
+  -c ./example/input/AGS_STAD_chr1.bedpe \  
+  -t ./reference/hg19/RefSeq_proteinCoding.tss.bed \  
   -g ./reference/hg19/RefSeq_proteinCoding.body.bed 
 
 ```
 
 ------
-## Example: KLF5 is the top candidate target in squamous cell carcinoma
+## Example: KLF5 is the top candidate target of a duplication hotspot in squamous cell carcinoma
 ### Step1:  Get all the enhancer-gene regulatory relationships from the input BEDPE file and BED file. 
 The ***Duplication_Squamous.bed*** file contains the genomic coordinates of duplication hotspots of squamous cell carcinoma. The ***SqCC_BICR31.bedpe*** file, derived from HiChIP experiments, is mapped to hg19 in the BICR31 (squamous cell carcinoma) cell line. The ***output*** provides all the enhancer-gene regulatory relationships and the RENC score for each candidate gene, including KLF5.
 ```
