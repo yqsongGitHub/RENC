@@ -131,7 +131,7 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 The output is a .RENC.search.txt file with annotation of information as follows.  
 column | name | explanation
 ------ | ---- | ------------
-1th | enhancer | genomic coordinate of duplicated strongest enhancer associated with the input target gene (based on PETs). If no results are found, return a placeholder (.)
+1th | enhancer | the input genomic coordinates of specific duplication hotspots
 2th | gene | the target gene. If no results are found, return a placeholder (.)
 
 ### Routine analysis 3: Get  genomic coordinate of the duplicated strongest enhancer associated with the input target gene (based on PETs).
@@ -149,7 +149,7 @@ bash ./src/RENC.sh -r ./src/RENC.R  \
 The output is a .RENC.search.txt file with annotation of information as follows.  
 column | name | explanation
 ------ | ---- | ------------
-1th | enhancer | genomic coordinate of duplicated enhancers associated with input target genes. If no results are found, return a placeholder (.)
+1th | enhancer | genomic coordinate of duplicated strongest enhancer associated with the input target gene (based on PETs). If no results are found, return a placeholder (.)
 2th | gene | the input target gene
 
 ------
