@@ -165,7 +165,7 @@ Usage:
   -c HICHIP_FILE      HiChIP file from Hichipper pipeline or other bedpe file [required].
   -t TSS_FILE         TSS file for protein coding genes or other TSS file [required].
   -g GENEBODY_FILE    Gene body file for protein coding genes [required].
-  -s GENE_ENH         Gene or region in Duplication to search; ALL gene and region by default. e.g.,"MEF2D","chr1:201970000-202085000" or "MEF2D:chr1:201970000-202085000"
+  -s GENE_ENH         Gene or duplication hotspot region to search. e.g.,"MEF2D","chr1:201970000-202085000" or "MEF2D:chr1:201970000-202085000"
 
 Example:     
   bash ./src/RENC.sh -r ./src/RENC.R \  
